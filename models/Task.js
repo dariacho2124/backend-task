@@ -13,12 +13,16 @@ const taskSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  status: {
+    type: String,
+    enum: ["completed", "pending"], // Este campo solo podrá ser 'completed' o 'pending'
+    // Estado por defecto
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-const Task = mongoose.model("Task", taskSchema);
+module.exports = mongoose.model("Task", taskSchema);
 
-module.exports = Task;
