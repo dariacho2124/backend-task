@@ -3,7 +3,7 @@ const Task = require("../models/Task");
 const { validationResult, body } = require("express-validator");
 const router = express.Router(); // Aquí definimos el router
 
-//Aqui se imcremento la validacion de express-validator al igual que en put
+//Aqui se implemento la validacion de express-validator al igual que en put
 router.post(
   "/",
   [
@@ -43,12 +43,11 @@ router.get("/", async (req, res) => {
   try {
     let tasks;
 
-    // Verificamos si el status es 'completed' o 'pending' y lo mapeamos a un valor booleano
     if (status === "completed" || status === "pending") {
-      const completed = status === "completed"; // 'completed' es true, 'pending' es false
+      const completed = status === "completed"; 
       tasks = await Task.find({ completed });
     } else {
-      tasks = await Task.find(); // Si no hay parámetro 'status', obtenemos todas las tareas
+      tasks = await Task.find();
     }
 
     res.status(200).json(tasks);

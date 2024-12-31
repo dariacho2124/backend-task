@@ -15,8 +15,7 @@ const taskSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["completed", "pending"], // Este campo solo podrá ser 'completed' o 'pending'
-    // Estado por defecto
+    enum: ["completed", "pending"],
   },
   createdAt: {
     type: Date,

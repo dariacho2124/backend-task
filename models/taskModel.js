@@ -1,27 +1,27 @@
-// models/taskModel.js
+
 const mongoose = require("mongoose");
 
-// Definición del esquema de tarea
+
 const taskSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true, // El título es obligatorio
+    required: true, 
   },
   description: {
     type: String,
-    required: false, // La descripción es opcional
+    required: false, 
   },
   completed: {
     type: Boolean,
-    default: false, // El estado por defecto es false
+    default: false, 
   },
   createdAt: {
     type: Date,
-    default: Date.now, // La fecha de creación se genera automáticamente
+    default: Date.now, 
   },
 });
 
-// Creamos el modelo a partir del esquema
+
 const Task = mongoose.model("Task", taskSchema);
 
 module.exports = Task;
